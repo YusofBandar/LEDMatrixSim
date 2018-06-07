@@ -61,6 +61,24 @@ function yChange(start, amount) {
 }
 
 
+function boundryCheck(axis, pos, amount) {
+    if (axis == "x") {
+        if ((pos[1] + amount) < (worldOffset - LEDMatrixWidth) || pos[1] + amount > (world[0].length - 1))
+            return false;
+        return true;
+    }
+
+    if (axis == "y") {
+        if (pos[0] + amount < 0 || pos[0] + amount > (world.length - 1))
+            return false
+        return true;
+    }
+
+    return false;
+
+}
+
+
 
 function printWorld(world, offset) {
     var yLength = world.length;
