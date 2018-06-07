@@ -11,6 +11,11 @@ var world = [
 
 var MarioPos = [7, 0];
 
+var LEDMatrixWidth = 8
+var LEDMatrixHeight = 8
+
+var worldOffset = 8
+
 function setup(){
 
     createCanvas(1000, 1000);
