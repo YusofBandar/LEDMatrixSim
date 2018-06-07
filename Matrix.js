@@ -47,9 +47,19 @@ function xChange(start, amount) {
             var end = [start[0], newX];
             marioMove(start, end);
         }
-    
-
 }
+
+function yChange(start, amount) {
+    var newY = start[0] + amount;
+
+    
+        if (world[newY][start[1]] == 0) {
+            var end = [newY, start[1]];
+            marioMove(start, end);
+        }
+    
+}
+
 
 
 function printWorld(world, offset) {
