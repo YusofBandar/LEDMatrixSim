@@ -40,24 +40,26 @@ function xChange(start, amount) {
 
     var newX = start[1] + amount;
 
-    
+    if (boundryCheck("x", start, amount)) {
         if (world[start[0]][newX] == 0) {
             if (start[1] >= (worldOffset / 2) && worldOffset < 16 && amount > 0)
                 worldOffset += 1;
             var end = [start[0], newX];
             marioMove(start, end);
         }
+    }
+
 }
 
 function yChange(start, amount) {
     var newY = start[0] + amount;
 
-    
+    if (boundryCheck("y", start, amount)) {
         if (world[newY][start[1]] == 0) {
             var end = [newY, start[1]];
             marioMove(start, end);
         }
-    
+    }
 }
 
 
