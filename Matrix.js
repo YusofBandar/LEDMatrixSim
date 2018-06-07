@@ -9,6 +9,8 @@ var world = [
     [1, 0, 0, 3, 3, 3, 3, 0, 0, 0, 3, 0, 0, 0, 0, 0]
 ];
 
+var MarioPos = [7, 0];
+
 function setup(){
 
     createCanvas(1000, 1000);
@@ -19,6 +21,14 @@ function setup(){
 
 function draw(){
     
+}
+
+function marioMove(start, end) {
+    world[start[0]][start[1]] = 0;
+    world[end[0]][end[1]] = 1;
+
+    MarioPos[0] = end[0];
+    MarioPos[1] = end[1];
 }
 
 function printWorld(world, offset) {
