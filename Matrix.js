@@ -16,6 +16,9 @@ var LEDMatrixHeight = 8
 
 var worldOffset = 8
 
+var jumped = false;
+
+
 function setup(){
 
     createCanvas(1000, 1000);
