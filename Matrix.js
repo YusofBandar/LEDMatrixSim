@@ -1,3 +1,5 @@
+
+// world map
 var world = [
     [0, 2, 2, 2, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -9,6 +11,7 @@ var world = [
     [1, 0, 0, 3, 3, 3, 3, 0, 0, 0, 3, 0, 0, 0, 0, 0]
 ];
 
+//block colors 
 var blocks = [
     [46, 117, 232],
     [98, 26, 114],
@@ -17,32 +20,45 @@ var blocks = [
     [216, 13, 13],
 ]
 
+//list hold bullets
 var bullets = [];
 
-var LEDMatrixWidth = 8
-var LEDMatrixHeight = 8
-var worldOffset = 8
+//LED Size
+var LEDMatrixWidth = 8;
+var LEDMatrixHeight = 8;
 
+//world offset
+//left side edge of the screen 
+var worldOffset = LEDMatrixWidth;
+
+//Space between each LED
 var LEDSpacing = 80;
+//LED size
 var LEDSize = 50;
 
+//CharaPos
 var CharaPos = [7, 0];
 
+//Character Jumping
 var jumped = false;
 
 function setup() {
+    //setup canvas and framerate 
     createCanvas(1000, 1000);
     frameRate(5)
     printWorld(world, worldOffset);
 }
 
 function draw() {
+    //draw world
     drawWorld();
 
+    //move bullets
     for (var i = 0; i < bullets.length; i++) {
-        drawBullet(i, bullets[i]);
+        moveBullet(i, bullets[i]);
     }
 
+    //gravity for character
     if (jumped == false) {
         if (CharaPos[0] < 7) {
             yChange(CharaPos, 1);
@@ -57,6 +73,7 @@ function draw() {
     printWorld(world, worldOffset);
 }
 
+//draw LED Matrix
 function drawWorld() {
     ellipseMode(CENTER);
 
@@ -82,7 +99,8 @@ function drawWorld() {
     }
 }
 
-function drawBullet(id, bullet) {
+//move bullets one space to the left (x+)
+function moveBullet(id, bullet) {
     world[bullet[0]][bullet[1]] = 0;
     if (world[bullet[0]][bullet[1] + 1] == 0) {
         world[bullet[0]][bullet[1] + 1] = 4;
@@ -94,21 +112,25 @@ function drawBullet(id, bullet) {
 }
 
 
-
+//keyPresses
 function keyPressed() {
 
     var SPACE = 32;
-
+    //left arrow ==> move left
     if (keyCode === LEFT_ARROW) {
         xChange(CharaPos, -1);
-    } else if (keyCode === RIGHT_ARROW) {
+    }
+    // right arrow ==> move right 
+    else if (keyCode === RIGHT_ARROW) {
         xChange(CharaPos, 1);
-    } else if (keyCode === UP_ARROW) {
+    }
+    //up arrow ==> jump 
+    else if (keyCode === UP_ARROW) {
         jumped = true;
         yChange(CharaPos, -2);
-    } else if (keyCode === DOWN_ARROW) {
-        yChange(CharaPos, 1);
-    } else if (keyCode === SPACE) {
+    }
+    //space bar ==> fire 
+    else if (keyCode === SPACE) {
 
         if (world[CharaPos[0]][CharaPos[1] + 1] == 0) {
             var bullet = [CharaPos[0], CharaPos[1] + 1];
@@ -120,6 +142,7 @@ function keyPressed() {
 
 }
 
+//move characater
 function charaMove(start, end) {
     world[start[0]][start[1]] = 0;
     world[end[0]][end[1]] = 1;
@@ -128,6 +151,7 @@ function charaMove(start, end) {
     CharaPos[1] = end[1];
 }
 
+//check world boundries
 function boundryCheck(axis, pos, amount) {
     if (axis == "x") {
         if ((pos[1] + amount) < (worldOffset - LEDMatrixWidth) || pos[1] + amount > (world[0].length - 1))
@@ -145,6 +169,7 @@ function boundryCheck(axis, pos, amount) {
 
 }
 
+//character x change
 function xChange(start, amount) {
 
     var newX = start[1] + amount;
@@ -160,6 +185,7 @@ function xChange(start, amount) {
 
 }
 
+//character y change
 function yChange(start, amount) {
     var newY = start[0] + amount;
 
@@ -171,6 +197,7 @@ function yChange(start, amount) {
     }
 }
 
+//console print the world
 function printWorld(world, offset) {
     var yLength = world.length;
 
