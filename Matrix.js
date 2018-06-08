@@ -9,15 +9,6 @@ var world = [
     [1, 0, 0, 3, 3, 3, 3, 0, 0, 0, 3, 0, 0, 0, 0, 0]
 ];
 
-var MarioPos = [7, 0];
-
-var LEDMatrixWidth = 8
-var LEDMatrixHeight = 8
-
-var worldOffset = 8
-
-var jumped = false;
-
 var blocks = [
     [46, 117, 232],
     [98, 26, 114],
@@ -26,16 +17,28 @@ var blocks = [
     [216, 13, 13],
 ]
 
-function setup(){
+var bullets = [];
 
+var LEDMatrixWidth = 8
+var LEDMatrixHeight = 8
+var worldOffset = 8
+
+var MarioPos = [7, 0];
+
+var jumped = false;
+
+function setup() {
     createCanvas(1000, 1000);
     frameRate(5)
     printWorld(world, worldOffset);
-
 }
 
-function draw(){
+function draw() {
     drawWorld();
+
+    for (var i = 0; i < bullets.length; i++) {
+        drawBullet(i, bullets[i]);
+    }
 
     if (jumped == false) {
         if (MarioPos[0] < 7) {
@@ -43,12 +46,12 @@ function draw(){
         }
     }
 
-    for (var i = 0; i < bullets.length; i++) {
-        drawBullet(i, bullets[i]);
-    }
-
     jumped = false;
-    
+
+
+
+    console.log("-----");
+    printWorld(world, worldOffset);
 }
 
 function drawWorld() {
@@ -87,9 +90,10 @@ function drawBullet(id, bullet) {
     }
 }
 
+
+
 function keyPressed() {
 
-    
     var SPACE = 32;
 
     if (keyCode === LEFT_ARROW) {
@@ -101,14 +105,15 @@ function keyPressed() {
         yChange(MarioPos, -2);
     } else if (keyCode === DOWN_ARROW) {
         yChange(MarioPos, 1);
-    }else if (keyCode === SPACE) {
+    } else if (keyCode === SPACE) {
 
         if (world[MarioPos[0]][MarioPos[1] + 1] == 0) {
             var bullet = [MarioPos[0], MarioPos[1] + 1];
             world[MarioPos[0]][MarioPos[1] + 1] = 4;
             bullets.push(bullet);
         }
-    } 
+
+    }
 
 }
 
@@ -118,6 +123,23 @@ function marioMove(start, end) {
 
     MarioPos[0] = end[0];
     MarioPos[1] = end[1];
+}
+
+function boundryCheck(axis, pos, amount) {
+    if (axis == "x") {
+        if ((pos[1] + amount) < (worldOffset - LEDMatrixWidth) || pos[1] + amount > (world[0].length - 1))
+            return false;
+        return true;
+    }
+
+    if (axis == "y") {
+        if (pos[0] + amount < 0 || pos[0] + amount > (world.length - 1))
+            return false
+        return true;
+    }
+
+    return false;
+
 }
 
 function xChange(start, amount) {
@@ -145,26 +167,6 @@ function yChange(start, amount) {
         }
     }
 }
-
-
-function boundryCheck(axis, pos, amount) {
-    if (axis == "x") {
-        if ((pos[1] + amount) < (worldOffset - LEDMatrixWidth) || pos[1] + amount > (world[0].length - 1))
-            return false;
-        return true;
-    }
-
-    if (axis == "y") {
-        if (pos[0] + amount < 0 || pos[0] + amount > (world.length - 1))
-            return false
-        return true;
-    }
-
-    return false;
-
-}
-
-
 
 function printWorld(world, offset) {
     var yLength = world.length;
