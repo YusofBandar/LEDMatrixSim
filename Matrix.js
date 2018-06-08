@@ -13,10 +13,15 @@ var world = [
 
 //block colors 
 var blocks = [
+    //0 background
     [46, 117, 232],
+    //1 character
     [98, 26, 114],
+    //2 clouds
     [248, 244, 249],
+    //3 platform
     [206, 125, 39],
+    //4 bullet
     [216, 13, 13],
 ]
 
