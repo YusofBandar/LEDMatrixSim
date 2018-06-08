@@ -72,6 +72,17 @@ function drawWorld() {
     }
 }
 
+function drawBullet(id, bullet) {
+    world[bullet[0]][bullet[1]] = 0;
+    if (world[bullet[0]][bullet[1] + 1] == 0) {
+        world[bullet[0]][bullet[1] + 1] = 4;
+
+        bullet[1] += 1;
+    } else {
+        bullets.splice(id, 1);
+    }
+}
+
 function keyPressed() {
 
     if (keyCode === LEFT_ARROW) {
