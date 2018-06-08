@@ -43,6 +43,10 @@ function draw(){
         }
     }
 
+    for (var i = 0; i < bullets.length; i++) {
+        drawBullet(i, bullets[i]);
+    }
+
     jumped = false;
     
 }
@@ -85,6 +89,9 @@ function drawBullet(id, bullet) {
 
 function keyPressed() {
 
+    
+    var SPACE = 32;
+
     if (keyCode === LEFT_ARROW) {
         xChange(MarioPos, -1);
     } else if (keyCode === RIGHT_ARROW) {
@@ -94,6 +101,13 @@ function keyPressed() {
         yChange(MarioPos, -2);
     } else if (keyCode === DOWN_ARROW) {
         yChange(MarioPos, 1);
+    }else if (keyCode === SPACE) {
+
+        if (world[MarioPos[0]][MarioPos[1] + 1] == 0) {
+            var bullet = [MarioPos[0], MarioPos[1] + 1];
+            world[MarioPos[0]][MarioPos[1] + 1] = 4;
+            bullets.push(bullet);
+        }
     } 
 
 }
