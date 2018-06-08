@@ -35,6 +35,15 @@ function setup(){
 }
 
 function draw(){
+    drawWorld();
+
+    if (jumped == false) {
+        if (MarioPos[0] < 7) {
+            yChange(MarioPos, 1);
+        }
+    }
+
+    jumped = false;
     
 }
 
