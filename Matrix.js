@@ -38,6 +38,31 @@ function draw(){
     
 }
 
+function drawWorld() {
+    ellipseMode(CENTER);
+
+    var yLength = world.length;
+
+    var xStart = worldOffset - LEDMatrixWidth;
+    var xEnd = worldOffset;
+
+    var yCount = 0;
+    var xCount = 0;
+
+    for (var y = 0; y < yLength; y++) {
+        for (var x = xStart; x < xEnd; x++) {
+
+            var id = world[y][x];
+
+            fill(blocks[id][0], blocks[id][1], blocks[id][2]);
+            ellipse(100 * (xCount + 1), 100 * (yCount + 1), 50, 50);
+            xCount += 1;
+        }
+        xCount = 0;
+        yCount += 1;
+    }
+}
+
 function keyPressed() {
 
     if (keyCode === LEFT_ARROW) {
