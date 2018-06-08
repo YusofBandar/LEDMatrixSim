@@ -18,6 +18,13 @@ var worldOffset = 8
 
 var jumped = false;
 
+var blocks = [
+    [46, 117, 232],
+    [98, 26, 114],
+    [248, 244, 249],
+    [206, 125, 39],
+    [216, 13, 13],
+]
 
 function setup(){
 
