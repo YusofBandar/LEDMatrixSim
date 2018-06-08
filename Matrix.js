@@ -28,6 +28,21 @@ function draw(){
     
 }
 
+function keyPressed() {
+
+    if (keyCode === LEFT_ARROW) {
+        xChange(MarioPos, -1);
+    } else if (keyCode === RIGHT_ARROW) {
+        xChange(MarioPos, 1);
+    } else if (keyCode === UP_ARROW) {
+        jumped = true;
+        yChange(MarioPos, -2);
+    } else if (keyCode === DOWN_ARROW) {
+        yChange(MarioPos, 1);
+    } 
+
+}
+
 function marioMove(start, end) {
     world[start[0]][start[1]] = 0;
     world[end[0]][end[1]] = 1;
