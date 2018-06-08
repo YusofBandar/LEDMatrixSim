@@ -23,7 +23,10 @@ var LEDMatrixWidth = 8
 var LEDMatrixHeight = 8
 var worldOffset = 8
 
-var MarioPos = [7, 0];
+var LEDSpacing = 80;
+var LEDSize = 50;
+
+var CharaPos = [7, 0];
 
 var jumped = false;
 
@@ -41,8 +44,8 @@ function draw() {
     }
 
     if (jumped == false) {
-        if (MarioPos[0] < 7) {
-            yChange(MarioPos, 1);
+        if (CharaPos[0] < 7) {
+            yChange(CharaPos, 1);
         }
     }
 
@@ -71,7 +74,7 @@ function drawWorld() {
             var id = world[y][x];
 
             fill(blocks[id][0], blocks[id][1], blocks[id][2]);
-            ellipse(100 * (xCount + 1), 100 * (yCount + 1), 50, 50);
+            ellipse(LEDSpacing * (xCount + 1), LEDSpacing * (yCount + 1), LEDSize, LEDSize);
             xCount += 1;
         }
         xCount = 0;
@@ -97,19 +100,19 @@ function keyPressed() {
     var SPACE = 32;
 
     if (keyCode === LEFT_ARROW) {
-        xChange(MarioPos, -1);
+        xChange(CharaPos, -1);
     } else if (keyCode === RIGHT_ARROW) {
-        xChange(MarioPos, 1);
+        xChange(CharaPos, 1);
     } else if (keyCode === UP_ARROW) {
         jumped = true;
-        yChange(MarioPos, -2);
+        yChange(CharaPos, -2);
     } else if (keyCode === DOWN_ARROW) {
-        yChange(MarioPos, 1);
+        yChange(CharaPos, 1);
     } else if (keyCode === SPACE) {
 
-        if (world[MarioPos[0]][MarioPos[1] + 1] == 0) {
-            var bullet = [MarioPos[0], MarioPos[1] + 1];
-            world[MarioPos[0]][MarioPos[1] + 1] = 4;
+        if (world[CharaPos[0]][CharaPos[1] + 1] == 0) {
+            var bullet = [CharaPos[0], CharaPos[1] + 1];
+            world[CharaPos[0]][CharaPos[1] + 1] = 4;
             bullets.push(bullet);
         }
 
@@ -117,12 +120,12 @@ function keyPressed() {
 
 }
 
-function marioMove(start, end) {
+function charaMove(start, end) {
     world[start[0]][start[1]] = 0;
     world[end[0]][end[1]] = 1;
 
-    MarioPos[0] = end[0];
-    MarioPos[1] = end[1];
+    CharaPos[0] = end[0];
+    CharaPos[1] = end[1];
 }
 
 function boundryCheck(axis, pos, amount) {
@@ -151,7 +154,7 @@ function xChange(start, amount) {
             if (start[1] >= (worldOffset / 2) && worldOffset < 16 && amount > 0)
                 worldOffset += 1;
             var end = [start[0], newX];
-            marioMove(start, end);
+            charaMove(start, end);
         }
     }
 
@@ -163,7 +166,7 @@ function yChange(start, amount) {
     if (boundryCheck("y", start, amount)) {
         if (world[newY][start[1]] == 0) {
             var end = [newY, start[1]];
-            marioMove(start, end);
+            charaMove(start, end);
         }
     }
 }
