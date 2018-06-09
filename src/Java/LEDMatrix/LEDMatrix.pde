@@ -11,6 +11,19 @@ int[][] world = new int[][]{
 {1, 0, 0, 3, 3, 3, 3, 0, 0, 0, 3, 0, 0, 0, 0, 0}
 };
 
+int [][] blocks = new int[][]{
+//0 background
+{46,117,232},
+//1 character
+{98,26,114},
+//2 cloud
+{248,244,114},
+//3 platform
+{206,125,39},
+//4 bullet
+{226,13,13}
+};
+
 
 
 void setup(){
