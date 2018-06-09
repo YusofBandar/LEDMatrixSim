@@ -1,4 +1,4 @@
-public class Block{
+public class Block implements IBlock{
  
   private int ID;
   private int[] Color;
