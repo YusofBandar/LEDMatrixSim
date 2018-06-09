@@ -1,4 +1,4 @@
-public class Block implements IBlock{
+public class Block{
  
   private int ID;
   private int[] Color;
@@ -21,4 +21,6 @@ public class Block implements IBlock{
   public boolean Solid(){
     return Solid;
   }
+
+  
 }
