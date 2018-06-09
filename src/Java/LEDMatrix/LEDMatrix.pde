@@ -24,12 +24,51 @@ int [][] blocks = new int[][]{
 {226,13,13}
 };
 
+int LEDWidth = 8;
+int LEDHeight = 8;
+
+int LEDSpacing = 80;
+int LEDSize = 50;
+
+int worldOffset = LEDWidth;
 
 
 void setup(){
+  size(800,800);
+  frameRate(5);
+  
+  drawWorld();
 
 }
 
 void draw(){
+
+}
+
+public void drawWorld(){
+  ellipseMode(CENTER);
+  
+  int yLength = world.length;
+  
+  int xStart = worldOffset - LEDWidth;
+  int xEnd = worldOffset;
+  
+  int yCount = 0;
+  int xCount = 0;
+  
+  for(int y=0;y<yLength;y++){
+    for(int x = xStart;x< xEnd;x++){
+      int block = world[y][x];
+      
+      fill(blocks[block][0],blocks[block][1],blocks[block][2]);
+      ellipse(LEDSpacing * (xCount+1),LEDSpacing * (yCount +1),LEDSize,LEDSize);
+      
+      xCount++ ;
+    }
+    
+    xCount = 0;
+    yCount++;
+  }
+  
 
 }
