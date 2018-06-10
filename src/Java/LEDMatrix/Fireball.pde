@@ -6,7 +6,7 @@ public class Fireball extends Block{
   
   @Override
   public int[] Animation(){
-    
+    return new int[]{-1,0};
   }
 
 }
