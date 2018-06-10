@@ -21,6 +21,10 @@ public class Block{
   public boolean Solid(){
     return Solid;
   }
+  
+  public int[] Animation(){
+    return new int[]{0,0};
+  }
 
   
 }
