@@ -33,6 +33,8 @@ public class World{
           int[] Color = block.Color();
           fill(Color[0],Color[1],Color[2]);
           ellipse(Spacing * (xCount+1),Spacing * (yCount +1),Size,Size);
+          int[] mov = block.Animation();
+          BlockMove(new int[]{y,x},mov,block.ID);
         }
         xCount++ ;
     }
@@ -41,8 +43,13 @@ public class World{
    }
   }
   
-  private void  BlockMove(int[] start, int[] end,){
+  private void  BlockMove(int[] start, int[] mov, int endID){
     
+    int endY = start[0] + mov[0];
+    int endX = start[1] + mov[1];
+    
+    World[start[0]][start[1]] = 1;
+    World[endY][endX] = endID;
   }
   
   private Block GetBlock(int ID){

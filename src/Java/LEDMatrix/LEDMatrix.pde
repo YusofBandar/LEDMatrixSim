@@ -8,14 +8,20 @@ int[][] map = new int[][]{
 {0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0},
 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 {0, 0, 0, 3, 3, 3, 3, 0, 3, 3, 3, 3, 0, 0, 0, 0},
-{1, 0, 0, 3, 3, 0, 3, 0, 3, 3, 0, 3, 0, 0, 0, 0}
+{1, 0, 0, 3, 3, 0, 3, 4, 3, 3, 0, 3, 0, 0, 0, 0}
 };
 
+final int BACK = 0;
+final int CHARA = 1;
+final int CLOUD = 2;
+final int PLAT = 3;
+final int FIREBALL = 4;
 Block [] blocks = new Block[]{
-  new Block(0,new int[]{46,117,232},false),
-  new Block(1,new int[]{98,26,114},false),
-  new Block(2,new int[]{248,244,114},false),
-  new Block(3,new int[]{206,125,39},true)
+  new Block(BACK,new int[]{46,117,232},false),
+  new Block(CHARA,new int[]{98,26,114},false),
+  new Block(CLOUD,new int[]{248,244,114},false),
+  new Block(PLAT,new int[]{206,125,39},true),
+  new Fireball(FIREBALL, new int[]{255,0,0},true)
 };
 
 
