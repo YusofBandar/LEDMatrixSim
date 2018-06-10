@@ -48,5 +48,6 @@ void setup(){
 }
 
 void draw(){
+  world.DrawWorld();
 
 }

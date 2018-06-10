@@ -1,12 +1,24 @@
 public class Fireball extends Block{
   
+  int direction = -1;
+  int animationCounter = 0;
+  
   public Fireball(int ID, int[] Color, boolean Solid){
     super(ID,Color,Solid);
   }
   
   @Override
   public int[] Animation(){
-    return new int[]{-1,0};
+    
+    if(animationCounter > 3){
+      direction *= -1;
+      animationCounter=0;
+      return new int[]{0,0};
+    }
+    
+   animationCounter ++;
+    print("hit");
+    return new int[]{direction,0};
   }
 
 }

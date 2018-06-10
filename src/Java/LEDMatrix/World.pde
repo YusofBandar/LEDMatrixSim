@@ -48,7 +48,7 @@ public class World{
     int endY = start[0] + mov[0];
     int endX = start[1] + mov[1];
     
-    World[start[0]][start[1]] = 1;
+    World[start[0]][start[1]] = 0;
     World[endY][endX] = endID;
   }
   
