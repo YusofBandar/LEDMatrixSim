@@ -1,7 +1,8 @@
 public class Fireball extends Block{
   
-  int direction = 1;
+  int direction = 0;
   int animationCounter = 0;
+
   
   public Fireball(int ID, int[] Color, boolean Solid){
     super(ID,Color,Solid);
@@ -11,11 +12,11 @@ public class Fireball extends Block{
   public int[] Animation(){
     
     if(animationCounter > 3){
-      print("Hit");
+      return new int[]{0,0};
     }
     
     animationCounter++;
-    return new int[]{direction,0};
+    return new int[]{direction,1};
   }
 
 }
