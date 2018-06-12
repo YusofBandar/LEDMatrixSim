@@ -1,7 +1,7 @@
 # LEDMatrixSim
 LED Matrix that written in Javascript and Java to allow quick and easy testing of a LED matrix without any hardware. The code comes with a simple platformer, character can move and fire, as well as a world scrolling.
 
-This project was built in conjunction with a Raspberry Pi [Sense Hat](https://www.raspberrypi.org/products/sense-hat/) Workshop, allowing teams to easily work together.  
+This project was built in conjunction with a RaspberryPi [Sense Hat](https://www.raspberrypi.org/products/sense-hat/) Workshop, allowing teams to easily work together.  
 
 <p align="center">
 <img align="center" src="https://github.com/YusofBandar/LEDMatrixSim/blob/master/Images/CharacterMovement.gif"/>
