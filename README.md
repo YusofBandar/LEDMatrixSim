@@ -1,2 +1,2 @@
 # LEDMatrixSim
-LED Matrix that runs in the web built with P5 to quickly test LED ideas without any hardware
+LED Matrix that written in Javascript and Java to allow quick and easy testing of a LED matrix without any hardware. The code comes with a simple platformer, character can move and fire, as well as a world scrolling.   
