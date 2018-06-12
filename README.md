@@ -4,13 +4,13 @@ LED Matrix that written in Javascript and Java to allow quick and easy testing o
 This project was built in conjunction with a RaspberryPi [Sense Hat](https://www.raspberrypi.org/products/sense-hat/) Workshop, allowing teams to easily work together.  
 
 <p align="center">
-<img align="center" src="https://github.com/YusofBandar/LEDMatrixSim/blob/master/Images/CharacterMovement.gif"/>
+<img align="center" src="https://github.com/YusofBandar/LEDMatrixSim/blob/master/Images/CharacterMovement.gif" width="250" height="240"/>
  </p>
 
 *Character Movement*
 
 <p align="center">
-<img align="center" src="https://github.com/YusofBandar/LEDMatrixSim/blob/master/Images/WorldScrolling.gif"/>
+<img align="center" src="https://github.com/YusofBandar/LEDMatrixSim/blob/master/Images/WorldScrolling.gif" width="250" height="240"/>
  </p>
 
 *World Scrolling*
