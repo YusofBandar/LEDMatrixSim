@@ -19,3 +19,8 @@ LED Matrix that written in Javascript and Java to allow quick and easy testing o
 - **S** Move Left
 - **A** Move Right
 - **Space-Bar** Fire
+
+## Installing
+Clone the Repo and run.
+
+To run the Java version you will need Processing Library.
