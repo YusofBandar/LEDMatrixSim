@@ -26,6 +26,7 @@ To re-map key bindings located in the ```Key Pressed ``` function.
  //left arrow ==> move left
     if (keyCode === LEFT_ARROW)
 ```
+***Example***
 
 ## Installing
 Clone the Repo and run.
