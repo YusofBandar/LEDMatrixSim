@@ -5,10 +5,17 @@ LED Matrix that written in Javascript and Java to allow quick and easy testing o
 <img align="right" src="https://github.com/Air92/Project-CAD/blob/master/Documents/Air92%20Images/Logo.PNG"/>
  </p>
 
-**Character Movement**
+*Character Movement*
 
 <p align="right">
-<img align="right" src="https://github.com/Air92/Project-CAD/blob/master/Documents/Air92%20Images/Logo.PNG" width="85" height="50"/>
+<img align="right" src="https://github.com/Air92/Project-CAD/blob/master/Documents/Air92%20Images/Logo.PNG"/>
  </p>
 
-**World Scrolling**
+*World Scrolling*
+
+## Controls
+
+- **W** Jump
+- **S** Move Left
+- **A** Move Right
+- **Space-Bar** Fire
