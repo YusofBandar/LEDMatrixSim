@@ -24,3 +24,13 @@ LED Matrix that written in Javascript and Java to allow quick and easy testing o
 Clone the Repo and run.
 
 To run the Java version you will need Processing Library.
+
+## Built With
+
+* [P5](https://p5js.org/)
+* [Processing](https://processing.org/)
+
+
+## Authors
+* **Yusof Bandar** - *Technical lead* - [YusofBandar](https://github.com/YusofBandar)
+
