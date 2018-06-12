@@ -20,6 +20,13 @@ LED Matrix that written in Javascript and Java to allow quick and easy testing o
 - **A** Move Right
 - **Space-Bar** Fire
 
+To re-map key bindings located in the ```Key Pressed ``` function.
+
+```
+ //left arrow ==> move left
+    if (keyCode === LEFT_ARROW)
+```
+
 ## Installing
 Clone the Repo and run.
 
