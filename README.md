@@ -32,5 +32,5 @@ To run the Java version you will need Processing Library.
 
 
 ## Authors
-* **Yusof Bandar** - *Technical lead* - [YusofBandar](https://github.com/YusofBandar)
+* **Yusof Bandar** - [YusofBandar](https://github.com/YusofBandar)
 
